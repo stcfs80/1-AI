@@ -1,0 +1,101 @@
+공통 베이스
+==========
+사용 AI 구독
+chat gpt
+Gemeni
+Calude
+Perplexity
+==========
+VS Code
+==========
+생산성
+excel
+word
+powerpoint
+==========
+디자인
+Figma
+Rive
+Adobe Photoshop
+Adobe Illustrator
+Adobe PremeirPro
+Adobe Aftter Effect
+==========
+언어
+TypeScript
+JavaScript
+==========
+프론트엔드
+React
+Next.js
+==========
+스타일링(CSS 관리)
+Tailwind CSS
+SCSS
+==========
+상태관리
+Zustand
+==========
+백엔드
+Node.js
+Express 또는 NestJS
+==========
+DB
+PostgreSQL
+Prisma ORM
+==========
+캐시 / 세션
+Redis
+==========
+파일 저장소
+Cloudflare R2 또는 AWS S3
+==========
+배포 / 인프라
+Vercel (프론트)
+Railway / Render / Fly.io (백엔드)
+==========
+버전관리
+Git
+GitHub
+==========
+인증
+JWT
+OAuth2
+=========
+
+1. AI 통합 서비스 전용 추가 스택
+============
+AI API
+OpenAI API
+Google Gemini API
+Perplexity API
+ElevenLabs API
+Runway API
+============
+멀티모달 처리
+ffmpeg
+Whisper
+============
+실시간 응답
+WebSocket
+Server-Sent Events(SSE)
+============
+비동기 작업
+BullMQ
+Redis Queue
+============
+파일 업로드
+Multer
+============
+앱 전환
+React Native
+Capacitor
+============
+
+
+
+
+
+
+
+

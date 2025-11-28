@@ -1,0 +1,243 @@
+AI 통합 서비스 개발 마스터 로드맵 (20단계 버전)
+
+말 그대로 실제 서비스 출시가 최종 목표다.
+각 단계는 “배우고 → 설치하고 → 만들어보고 → 적용하는” 구조로 이어진다.
+
+1단계 — 필수 프로그램 설치 & 개발환경 세팅
+
+코딩의 신비로운 세계에 들어가기 전에 도구부터 챙겨야 한다.
+
+필요한 것들
+• VS Code
+• Node.js (LTS)
+• Git
+• GitHub 계정
+• Chrome 브라우저
+• Postman(또는 Hoppscotch)
+• pnpm (선택이지만 강력 추천)
+• Python (ffmpeg/Whisper 연동 때문에 eventually 필요)
+
+세팅 순서
+
+Node.js 설치
+
+Git 설치 → GitHub 로그인
+
+VS Code 설치 → 필수 플러그인 설치
+
+ES7+ Snippets
+
+Tailwind CSS
+
+Prettier
+
+GitLens
+
+Thunder Client
+
+터미널 기본 설정 (PowerShell/WSL)
+
+폴더 하나 만들어서 기본 테스트 프로젝트 생성
+
+mkdir ai-service
+cd ai-service
+npm init -y
+
+
+이 단계 끝나면 너는 이제 코드의 대문 밖까지는 도착한 셈이다.
+
+2단계 — Git & GitHub 기초 익히기
+
+버전 관리라는 건, 집을 지을 때 ‘도면을 매일 백업하는 행위’와 비슷하다.
+
+• Git 기본 명령
+
+clone
+
+add
+
+commit
+
+push
+
+pull
+
+• GitHub 리포지토리 생성 → VS Code 연동
+• 브랜치 전략 기초 (main / dev 정도면 충분)
+
+3단계 — 프로젝트 전체 구조 잡기 (폴더 설계)
+
+여기서 헷갈릴 수 있는 부분.
+너희 회사의 CodeIgniter처럼 정해진 폴더 구조가 있는 프레임워크도 있고,
+React + Node처럼 너가 폴더 구조를 자유롭게 만드는 경우도 있다.
+
+우리가 만드는 건 자유로운 구조다.
+예:
+
+/ai-service
+  /apps
+    /web    → Next.js
+    /server → Node/Express
+  /packages
+    /ui
+    /utils
+  /data
+
+
+이건 이후에 정교하게 튜닝하면 된다.
+
+4단계 — Figma로 서비스 UX/UI 기본 틀 잡기
+
+손도 안 움직였는데 코드는 쓰지 말자.
+구상 → 화면 설계 → 컴포넌트 구조까지 Figma에서 그려보는 단계.
+
+필요한 작업
+• 와이어프레임 만들기
+• 기본 디자인 시스템 설정하기
+• 페이지 구조 설계 (홈 → 업로드 → 분석결과 → 대시보드)
+
+5단계 — Next.js(프론트엔드) 기본기 익히기
+
+이제 화면을 살려야 한다.
+
+학습 내용
+• Next.js 프로젝트 생성
+• 페이지/라우팅 구조
+• Tailwind CSS 연결
+• 컴포넌트 구조 설계
+• zustand로 전역 상태 기본 사용법 익히기
+
+6단계 — Express 또는 NestJS로 백엔드 서버 시작
+
+웹은 입만 살면 안 된다. 귀와 뇌도 있어야 한다.
+
+학습 내용
+• Node.js 서버 구조
+• Express 기본 라우팅
+• CORS 처리
+• 환경변수(.env) 사용
+• REST API 기본 만들기
+
+7단계 — PostgreSQL + Prisma 연결하기
+
+데이터 저장이 필요하다면 DB는 필수.
+
+내용
+• Railway 또는 Supabase로 DB 생성
+• Prisma 스키마 정의
+• User / File / Session 기본 모델 만들기
+• CRUD 테스트
+
+8단계 — 파일 업로드 기능 만들기
+
+AI 서비스는 보통 파일 업로드 → 처리 → 결과 반환 흐름이다.
+
+• multer로 업로드
+• Cloudflare R2 또는 AWS S3로 저장
+• 업로드 URL 생성
+• 보안 설정
+
+9단계 — ffmpeg + Whisper 연동으로 음성/영상 처리
+
+AI 서비스의 핵심부에 들어가기 시작한다.
+
+• ffmpeg 설치
+• mp4 → wav 추출
+• Whisper 로컬 또는 API 사용
+• 텍스트 변환 테스트
+
+10단계 — OpenAI / Gemini / Perplexity API 연동
+
+이제 AI 엔진을 사용한다.
+
+단계
+• OpenAI 키 연결
+• 텍스트 요약
+• 영상 요약
+• 구조화된 JSON 응답 받기
+• Gemini Vision 테스트
+• Perplexity 검색/분석 테스트
+
+11단계 — 서비스 핵심 로직 구성
+
+예시: “AI 통합 서비스”라면
+파일 업로드 → Whisper → 요약 → 분석 → 결과 저장 → UI 출력
+
+이 흐름을 백엔드에 설계하는 단계.
+
+12단계 — 대화형/스트리밍 기능 (SSE/WebSocket)
+
+실시간 응답은 UX를 10배 좋게 만든다.
+
+• SSE로 실시간 텍스트 응답
+• WebSocket 기본 채팅 구현
+
+13단계 — 캐시/큐 처리 (Redis/BullMQ)
+
+무거운 작업은 큐로 처리해야 서버가 죽지 않는다.
+
+• Redis 세팅
+• BullMQ로 비동기 작업 큐 만들기
+
+14단계 — 인증 시스템 구축
+
+로그인 없이는 SaaS로 못 나간다.
+
+• JWT 기반 로그인
+• OAuth2(Google) 추가
+• 세션/리프레시 토큰 구조
+
+15단계 — 대시보드 + 기록 저장
+
+사용자가 쓴 기록을 DB로 보여주는 단계.
+
+• Prisma 쿼리 최적화
+• 업로드 리스트
+• 요약 기록
+• 각종 메타데이터 표시
+
+16단계 — 디자인 고도화
+
+이제 실전에 가까운 UI/UX로 바꿔야 한다.
+
+• 반응형 조정
+• 컴포넌트 재사용성 높이기
+• Tailwind + 애니메이션
+• 브랜드 컬러 시스템 정립
+
+17단계 — Vercel/Render/Railway 배포
+
+이제 코드가 세상 밖으로 나간다.
+
+프론트: Vercel
+백엔드: Railway or Render
+DB: Supabase or Railway
+스토리지: R2
+
+실제로 도메인 연결까지.
+
+18단계 — 앱 전환 (React Native / Capacitor / Ionic)
+
+웹 기반 서비스를 앱으로 감싸는 작업.
+
+• 웹뷰 기반 하이브리드 앱
+• 푸시 알림 연결(Firebase)
+• 앱 스토어 빌드 준비
+
+19단계 — 모니터링 & 로깅
+
+서비스가 돌아가기 시작하면 로그가 생명줄이다.
+
+• Sentry
+• Logtail
+• API 응답 속도 체크
+• DB 부하 감시
+
+20단계 — 베타 오픈 & 피드백 반영
+
+실제 사용자에게 공개하고 조용히 세상을 지켜본다.
+
+• 구글폼으로 피드백 받기
+• 크리티컬 버그 수정
+• 개선사항 리스트업
+• 비즈니스 모델 정리(무료/유료 플랜)
